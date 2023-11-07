@@ -101,13 +101,14 @@ class ViewController: UIViewController {
         let buttons: [UIButton] = [buttonOne, buttonTwo, buttonThree, buttonFour]
         var randomBttons: [UIButton] = buttons.shuffled()
         randomBttons[0].setTitle(pokeList[currentElementIndex].name, for: .normal)
-        for butt in randomBttons {
-            var nextNumber = currentElementIndex
-            if butt == randomBttons[0]{
-                continue
-            }
-            butt.setTitle(pokeList[nextNumber + 1].name, for: .normal)
-            nextNumber += 1
+        var newArrayPoke = pokeList
+        newArrayPoke.remove(at: currentElementIndex)
+        for i in 1..<randomBttons.count{
+            var randomIndex = Int.random(in: 0...newArrayPoke.count - 1)
+            randomBttons[i].setTitle(newArrayPoke[randomIndex].name, for: .normal)
+            newArrayPoke.remove(at: randomIndex)
+           
+            
         }
         
     }
