@@ -71,40 +71,16 @@ class ViewController: UIViewController {
     
     //Answer button Tapp
     @IBAction func oneButtonTap(_ sender: UIButton) {
-        if buttonOne.currentTitle == pokeList[currentElementIndex].name{
-            answerLabel.text = "Заебись"
-            correctAnswerCount += 1
-        }else{
-            answerLabel.text = "хуйня"
-        }
-        state = .answer
+        checkAnswer(button: buttonOne)
     }
     @IBAction func twoButtonTap(_ sender: UIButton) {
-        if buttonTwo.currentTitle == pokeList[currentElementIndex].name{
-            answerLabel.text = "Заебись"
-            correctAnswerCount += 1
-        }else{
-            answerLabel.text = "хуйня"
-        }
-        state = .answer
+        checkAnswer(button: buttonTwo)
     }
     @IBAction func threeButtonTap(_ sender: UIButton) {
-        if buttonThree.currentTitle == pokeList[currentElementIndex].name{
-            answerLabel.text = "Заебись"
-            correctAnswerCount += 1
-        }else{
-            answerLabel.text = "хуйня"
-        }
-        state = .answer
+        checkAnswer(button: buttonThree)
     }
     @IBAction func fourButtonTap(_ sender: UIButton) {
-        if buttonFour.currentTitle == pokeList[currentElementIndex].name{
-            answerLabel.text = "Заебись"
-            correctAnswerCount += 1
-        }else{
-            answerLabel.text = "хуйня"
-        }
-        state = .answer
+        checkAnswer(button: buttonFour)
     }
     
     
@@ -229,6 +205,16 @@ class ViewController: UIViewController {
     
     func scoreAlertDismissed(_ action: UIAlertAction) {
         mode = .pokeCard
+    }
+    
+    func checkAnswer(button: UIButton){
+        if button.currentTitle == pokeList[currentElementIndex].name{
+            answerLabel.text = "Угадал"
+            correctAnswerCount += 1
+        }else{
+            answerLabel.text = "НЕ угадал"
+        }
+        state = .answer
     }
     
     
